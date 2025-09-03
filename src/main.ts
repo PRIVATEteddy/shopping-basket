@@ -1,6 +1,11 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { createReducer, provideStore } from '@ngrx/store';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+import { App } from './app/app';
+import { cartReducer } from './app/states/cart/cart.reducer'
+
+bootstrapApplication(App, {
+  providers :[
+    provideStore({ cart: cartReducer }),
+  ],
+}).catch((err) => console.error(err));
