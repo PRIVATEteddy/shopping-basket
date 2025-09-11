@@ -1,0 +1,33 @@
+<form (ngSubmit)="onLogin()" class="form-Background">
+
+<mat-form-field>
+  <mat-label>E-mail</mat-label>
+  <input
+   matInput
+    [(ngModel)]="email"
+    name="email"
+    type="email"
+    />
+</mat-form-field><br>
+
+<mat-form-field>
+  <mat-label>Password</mat-label>
+  <input
+   matInput
+  [(ngModel)]="password"
+   name="password"  [type]="hide() ? 'password' : 'text'" />
+
+    <button
+    type="button"
+      matIconButton
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+</mat-form-field><br>
+
+<button matButton="outlined" type="submit">login</button>
+</form>

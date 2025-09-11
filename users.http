@@ -1,0 +1,8 @@
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "name": "Test From REST Client",
+  "email": "restclient@example.com",
+  "password": "p@ss"
+}

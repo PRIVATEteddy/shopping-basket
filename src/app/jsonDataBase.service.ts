@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { itemInterface } from './item.interface';
+import { itemInterface } from './datamodel/item.interface';
 
 
 @Injectable({

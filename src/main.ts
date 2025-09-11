@@ -5,10 +5,12 @@ import { App} from './app/app';
 import {  persistCartMetaReducer} from './app/states/persis.meta-reducer'
 import { cartReducer } from './app/states/cart/cart.reducer';
 import { provideRouter } from '@angular/router';
-
+import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
 bootstrapApplication(App, {
   providers: [
-   
+     provideHttpClient(),
+   provideRouter(routes),
     provideStore(
      { cart: cartReducer},
        { metaReducers: [persistCartMetaReducer] }

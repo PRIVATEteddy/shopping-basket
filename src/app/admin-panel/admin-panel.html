@@ -1,0 +1,46 @@
+<table >
+ <thead>
+  <tr>
+  <th>#</th><th>Name</th><th>Price</th><th>stock</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let p of products$ | async; let i = index">
+   <td>{{ i + 1}}</td>
+   <td>{{ p.name }}</td>
+   <td>{{ p.price | currency }}</td>
+   <td>{{ p.stock }}</td>
+   <td>
+    <button (click)="onIncrease(p)">Add+1</button>
+    <button (click)="onDecrease(p)">Remove-1   </button>
+     <button (click)="onDelete(p.id)">Delete</button>
+   </td>
+  </tr>
+ </tbody>
+  </table>
+
+<p *ngIf="(products$ | async)?.length === 0">No products found</p>
+<h3>Add product</h3>
+
+
+<form [formGroup]="form" (ngSubmit)="onCreate()">
+
+  <mat-form-field>
+  <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="e.g. Headphones" />
+</mat-form-field>
+<br>
+<mat-form-field>
+  <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" />
+ </mat-form-field>
+<br>
+ <mat-form-field>
+  <mat-label>Stock</mat-label>
+    <input matInput type="number" formControlName="stock" />
+ </mat-form-field>
+<br>
+  <button matFab extended  type="submit" >Add</button>
+</form>
+
+<hr />

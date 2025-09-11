@@ -1,0 +1,82 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "Acme Fresh Start Housing",
+      "email": "justsomething@gmail.com",
+      "password": "imsmart123"
+    },
+    {
+      "id": "2",
+      "name": "Bright Future Tech",
+      "email": "future.tech@example.com",
+      "password": "codemaster2025"
+    },
+    {
+      "id": "3",
+      "name": "Green Valley Foods",
+      "email": "orders@greenvalley.com",
+      "password": "healthy99life"
+    },
+    {
+      "id": "4",
+      "name": "Sunrise Fitness Club",
+      "email": "contact@sunrisefit.org",
+      "password": "fitstrong777"
+    },
+    {
+      "id": "5",
+      "name": "Ocean Breeze Travel",
+      "email": "support@oceanbreeze.co",
+      "password": "travelnow321"
+    },
+    {
+      "id": "6",
+      "name": "Pixel Perfect Design",
+      "email": "design@pixelperfect.io",
+      "password": "artistic456"
+    },
+    {
+      "id": "7",
+      "name": "NextGen Robotics",
+      "email": "info@nextgenrobots.ai",
+      "password": "robopower88"
+    },
+    {
+      "id": "8",
+      "name": "Starlight Cinemas",
+      "email": "tickets@starlightcinemas.net",
+      "password": "moviefan555"
+    },
+    {
+      "id": "9",
+      "name": "Urban Coffee House",
+      "email": "hello@urbancoffee.com",
+      "password": "lattelover22"
+    },
+    {
+      "id": "10",
+      "name": "Skyline Apartments",
+      "email": "rentals@skylineapt.org",
+      "password": "homesweet789"
+    },
+    {
+      "id": "62c8",
+      "name": "Test From REST Client",
+      "email": "restclient@example.com",
+      "password": "p@ss"
+    },
+    {
+      "id": "244d",
+      "username": "dasd",
+      "email": "sadsa@gmail.com",
+      "password": "adada"
+    },
+    {
+      "id": "f880",
+      "username": "sigma",
+      "email": "sigma@gmail.com",
+      "password": "sigma"
+    }
+  ]
+}

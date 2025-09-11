@@ -1,1 +1,37 @@
-<p>register works!</p>
+<form (ngSubmit)="onCreate()" class="form-Background">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput name="username"
+     [(ngModel)]="username" type="text" /> </mat-form-field
+  ><br />
+
+  <mat-form-field>
+    <mat-label>E-mail</mat-label>
+    <input matInput name="email"
+     [(ngModel)]="email"
+      type="email
+      " />
+       </mat-form-field
+  ><br/>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput name="password"
+     [(ngModel)]="password"
+      [type]="hide() ? 'password' : 'text'"
+       />
+
+    <button
+      type="button"
+      matIconButton
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button> </mat-form-field
+  ><br />
+
+  <button matButton="outlined" type="submit">create</button>
+</form>
