@@ -6,7 +6,7 @@ import { userInterface } from '../datamodel/user.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/user';
+  private apiUrl = 'http://localhost:3001/user';
 
   constructor(private http: HttpClient) {}
 

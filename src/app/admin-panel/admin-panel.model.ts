@@ -16,23 +16,23 @@ constructor(private http: HttpClient) {}
 
 
   getProducts(): Observable<product[]> {
-    return this.http.get<product[]>('http://localhost:3000/products');
+    return this.http.get<product[]>('http://localhost:3002/products');
   }
 
 
   updateProduct(id: number, patch: Partial<product>) {
-    return this.http.patch<product>(`http://localhost:3000/products/${id}`, patch);
+    return this.http.patch<product>(`http://localhost:3002/products/${id}`, patch);
   }
 
   deleteProduct(id: number) {
-    return this.http.delete<void>(`http://localhost:3000/products/${id}`);
+    return this.http.delete<void>(`http://localhost:3002/products/${id}`);
   }
    addProduct(p: Omit<product, 'id'>) {
-    return this.http.post<product>('http://localhost:3000/products', p);
+    return this.http.post<product>('http://localhost:3002/products', p);
   }
 
   createProduct(p: Omit<product, 'id'>) {
-    return this.http.post<product>('http://localhost:3000/products', p);
+    return this.http.post<product>('http://localhost:3002/products', p);
   }
 
 

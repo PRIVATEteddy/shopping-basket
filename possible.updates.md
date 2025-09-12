@@ -39,9 +39,9 @@ Useful when there’s no fancy CMS yet — JSON form = quick way to seed or upda
 
 json server run {
 1 npx json-server --watch db.json --port 3000
-2 npx json-server --watch usersDB.json --port 3000
-3 npx json-server --watch adminPanelProducts.json --port 3000
-
+2 npx json-server --watch usersDB.json --port 3001
+3 npx json-server --watch adminPanelProducts.json --port 3002
+4 npx json-server --watch chart-data.json --port 3003
 json file starten meerdere
 
 }

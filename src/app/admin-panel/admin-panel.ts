@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { AdminPanelService } from './admin-panel.model';
 import { MatTableModule } from '@angular/material/table';
-import { AsyncPipe, NgFor, CurrencyPipe } from '@angular/common';
-import { NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, CurrencyPipe, NgIf } from '@angular/common';
+
 import { product } from '../datamodel/admin.interface';
 import {  Observable } from 'rxjs';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import
+
 @Component({
   selector: 'app-admin-panel',
   imports: [  MatButtonModule, MatFormFieldModule, MatTableModule, AsyncPipe, NgFor, CurrencyPipe, NgIf, ReactiveFormsModule , MatInputModule],
@@ -18,6 +18,7 @@ import
 })
 export class AdminPanel {
   private api = inject(AdminPanelService);
+  
   products$: Observable<product[]> = this.api.getProducts();
   ngOninit(): void {}
   form: FormGroup;
@@ -64,7 +65,7 @@ constructor(private fb: FormBuilder) {
   });
  }
 
-
+displayedColumns: string[] = ['id', 'name', 'price', 'stock'];
 
 
 }

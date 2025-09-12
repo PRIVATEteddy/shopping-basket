@@ -4,7 +4,7 @@
       "id": "3",
       "name": "Keyboard",
       "price": 79,
-      "stock": 27
+      "stock": 30
     },
     {
       "id": "4",
@@ -41,6 +41,30 @@
       "name": "dsadsa",
       "price": 123213,
       "stock": 21321
+    },
+    {
+      "id": "13e8",
+      "name": "dada",
+      "price": 2121,
+      "stock": 123
+    },
+    {
+      "id": "f460",
+      "name": "321321",
+      "price": 32132131,
+      "stock": 1230
+    },
+    {
+      "id": "c18b",
+      "name": "SP-004",
+      "price": 115,
+      "stock": 20
+    },
+    {
+      "id": "eb4d",
+      "name": "GLSSWRKS",
+      "price": 120,
+      "stock": 2500
     }
   ]
 }

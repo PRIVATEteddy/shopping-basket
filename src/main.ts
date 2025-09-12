@@ -7,15 +7,18 @@ import { cartReducer } from './app/states/cart/cart.reducer';
 import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
+
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 bootstrapApplication(App, {
   providers: [
+    provideCharts(withDefaultRegisterables()),
      provideHttpClient(),
    provideRouter(routes),
     provideStore(
      { cart: cartReducer},
        { metaReducers: [persistCartMetaReducer] }
       // later: profile: profileReducer, etc.
-    ),
+    ), provideCharts(withDefaultRegisterables()),
   ],
 });
 
