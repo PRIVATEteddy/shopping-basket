@@ -1,20 +1,31 @@
 <mat-toolbar>
   <span class="title"> shop   </span>
 <mat-divider [vertical]="true"></mat-divider>
-<button class="headerBtn" matButton="" routerLink="/authentication">Login/Register</button>
+<button class="headerBtn" matButton="" routerLink="/authentication" i18n>Login/Register</button>
 
 <mat-divider [vertical]="true"></mat-divider>
 
-  <button class="headerBtn" matButton="" routerLink="../admin-panel">admin-page</button>
+  <button class="headerBtn" matButton="" routerLink="../admin-panel"i18n>admin-page</button>
 
 <mat-divider [vertical]="true"></mat-divider>
 
-  <button class="headerBtn" matButton="" routerLink="../charts">charts</button>
+  <button class="headerBtn" matButton="" routerLink="../bar-charts" i18n>charts</button>
 
 <mat-divider [vertical]="true"></mat-divider>
 
-  <button class="headerBtn" matButton="" routerLink="../chart-product/scatter-chart/scatter-chart.ts">realChart</button>
+  <button class="headerBtn" matButton="" routerLink="../scatter-chart" i18n >realChart</button>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <button class="headerBtn" matButton="" routerLink="../dialog" i18n>dialog</button>
+
+ <mat-divider [vertical]="true"></mat-divider>
+<nav>
+  
+  <app-locale-switcher></app-locale-switcher>
+</nav>
 
 </mat-toolbar>
+
 
 

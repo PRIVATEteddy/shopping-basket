@@ -2,8 +2,18 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+
+
   "projects": {
     "shopping-basket": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "nl": "src/locale/messages.nl.json"
+
+        }
+      },
+
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -18,9 +28,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -29,17 +37,23 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"],
+
+            "localize": true
           },
           "configurations": {
+
+
+            "nl": {
+              "localize": ["nl"]
+            },
+
             "production": {
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "1.2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -60,6 +74,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
+            "en": { "buildTarget": "shopping-basket:build:development,en" },
+            "nl": { "buildTarget": "shopping-basket:build:development,nl" },
+
             "production": {
               "buildTarget": "shopping-basket:build:production"
             },
@@ -75,10 +92,7 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -87,9 +101,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }

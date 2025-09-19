@@ -6,8 +6,8 @@ import { ChartBaseComponent } from '../chart-base';
 
 @Component({
   selector: 'app-bar-chart',
-  templateUrl: './scatter-chart.html',
-  styleUrls: ['./scatter-chart.scss'],
+  templateUrl: './bar-chart.html',
+  styleUrls: ['./bar-chart.scss'],
 })
 export class BarChartComponent extends ChartBaseComponent {
 

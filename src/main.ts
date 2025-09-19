@@ -1,3 +1,6 @@
+import '@angular/localize/init';
+///
+
 // src/main.ts
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';

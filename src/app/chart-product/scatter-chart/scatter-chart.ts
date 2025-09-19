@@ -1,3 +1,4 @@
+import { product } from './../../datamodel/admin.interface';
 import { Component } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { ChartProduct } from '../chart-product';
@@ -15,17 +16,18 @@ export class ScatterChart  extends ChartProduct {
     super(service);
   }
 
-  override createChart(labeldata: any, realdata: any, colordata: any) {
+  override createChart(labeldata: any, productdata: any, pricedata: any) {
     this.Chart = new Chart('MyChart', {
       type: 'bar', //this denotes tha type of chart
       data: {
         labels: labeldata,
         datasets: [
           {
-            label: 'No of sales',
-            data: realdata,
-            backgroundColor: colordata,
+
+            label: 'No. of stock',
+            data: productdata,
             barThickness: 40,
+
           },
         ],
       },

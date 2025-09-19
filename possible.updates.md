@@ -44,4 +44,46 @@ json server run {
 4 npx json-server --watch chart-data.json --port 3003
 json file starten meerdere
 
+
+zoek en filter functio voor het tabel 
+
+search bar material
+
+
+multible select met the catory dat je meerderen aan kan vinken 
+
+tabel moet meerdere pages hebben en als je in een page gaat moet op het tweede tablet van een tabel en als je dan terug gaat moet je op het tweede tablet zijn en niet op de eerste
+
+tabel tablaaden je gaat naar de tweede kan ga je in een tabel maar je wilt terug zorg ervoor dat je dan op de tweede tab blijft en niet terug bent naar de eerste 
 }
+
+multi select heeft meerdere options dus je moet een lijst maken
+
+1 van de lijst[] die bijhoud wat de filters zijn en de andere gewoon de filter lijst 
+en dan geven aan de tabl filter
+
+
+
+angular i18n angular vertalen
+
+eerst gewoon oefenen met simpel een paar functies/ header vertalen later pas de hele website
+
+
+nieuwe translatie =ng extract-i18n --format json --output-path src/locale --out-file messages.json
+
+
+
+
+morgen te doen maak van de xlf files json of zorg gewoon dat localization/translatio via json gaat 
+
+daarna maakt je website in 2 verschilende talen en verander de talen met function met een vlaggetje
+
+
+
+ngx  translate
+
+maak trans laties met pipe en  {{ component |  translate}}
+
+local storage pseuodo code voor vertaling
+
+kijk of er iets in de localstorage zit zo niet nederlands

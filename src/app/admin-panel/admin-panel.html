@@ -1,7 +1,16 @@
+
+
+
+
+
 <table >
  <thead>
   <tr>
-  <th>#</th><th>Name</th><th>Price</th><th>stock</th>
+  <th>#</th>
+  <th i18n>Name</th>
+  <th i18n>Price</th>
+  <th i18n>Stock</th>
+  <th i18n>Category</th>
   </tr>
  </thead>
  <tbody>
@@ -10,111 +19,133 @@
    <td>{{ p.name }}</td>
    <td>{{ p.price | currency }}</td>
    <td>{{ p.stock }}</td>
+   <td>{{ p.category }}</td>
    <td>
-    <button (click)="onIncrease(p)">Add+1</button>
-    <button (click)="onDecrease(p)">Remove-1   </button>
-     <button (click)="onDelete(p.id)">Delete</button>
+    <button (click)="onIncrease(p)" i18n>Add+1</button>
+    <button (click)="onDecrease(p)" i18n>Remove-1   </button>
+     <button (click)="onDelete(p.id)" i18n>Delete</button>
    </td>
   </tr>
  </tbody>
   </table>
 
-<!--<p *ngIf="(products$ | async)?.length === 0">No products found</p> -->
-<ng-container *ngIf="products$ | async as products">
-<table mat-table [dataSource]="products" class="mat-elevation-z8">
+  <input matInput
+       #q
+       type="search"
+       placeholder="Filter by name"
+       (input)="filterResults(q.value)">
+  <button mat-button type="submit"
+  (click)="filterResults(q.value)" i18n>Filter</button>
+
+
+ <mat-form-field>
+  <mat-label i18n>Category</mat-label>
+   <mat-select [formControl]="categorySingle" (selectionChange)="applyFilter()">
+    @for (category of categoriesList; track category) {
+      <mat-option [value]="category.value">{{category.viewValue}}</mat-option>
+    }
+  </mat-select>
+ </mat-form-field>
+
+<mat-form-field>
+  <mat-label i18n>category</mat-label>
+ <mat-select [formControl]="products" multiple (selectionChange)="applyFilter()">
+    @for (category of categoriesList; track category) {
+       <mat-option [value]="category.value">{{category.viewValue}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+
+
+<table   mat-table [dataSource]="dataSource" matSort  >
 
 
 
 <ng-container matColumnDef="id" >
-<th mat-header-cell *matHeaderCellDef> No. </th>
-<td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n> No. </th>
+<td mat-cell *matCellDef="let element; let inventory = index"> {{inventory + 1}} </td>
 </ng-container>
 
 <ng-container matColumnDef="name" >
-<th mat-header-cell *matHeaderCellDef> Name </th>
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n> Name </th>
 <td mat-cell *matCellDef="let element"> {{element.name}} </td>
 </ng-container>
 
 <ng-container matColumnDef="price" >
-<th mat-header-cell *matHeaderCellDef> Price </th>
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n> Price </th>
 <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
 </ng-container>
 
 <ng-container matColumnDef="stock" >
-<th mat-header-cell *matHeaderCellDef> Stock </th>
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n> Stock </th>
 <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
 </ng-container>
 
+<ng-container matColumnDef="category" >
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n > Category </th>
+<td mat-cell *matCellDef="let element"> {{element.category}} </td>
+</ng-container>
 
+
+
+<ng-container matColumnDef="information" >
+<th mat-header-cell *matHeaderCellDef mat-sort-header i18n>information </th>
+<td mat-cell *matCellDef="let element">
+ <button mat-raised-button (click)="openDialog()" i18n>Open Dialog</button></td>
+</ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+
+
 </table>
 
-
-</ng-container>
-
-
-
-
+   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
 
 
 
 
 
 
-
-
-
-
-
-
-
-<h3>Add product</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 i18n >add a product</h3>
 
 
 
 <form [formGroup]="form" (ngSubmit)="onCreate()">
 
   <mat-form-field>
-  <mat-label>Name</mat-label>
+  <mat-label i18n>Name</mat-label>
     <input matInput formControlName="name" placeholder="e.g. Headphones" />
 </mat-form-field>
 <br>
 <mat-form-field>
-  <mat-label>Price</mat-label>
-    <input matInput type="number" formControlName="price" />
+  <mat-label i18n>Price</mat-label>
+    <input matInput type="number"  formControlName="price" />
  </mat-form-field>
 <br>
  <mat-form-field>
-  <mat-label>Stock</mat-label>
+  <mat-label i18n>Stock</mat-label>
     <input matInput type="number" formControlName="stock" />
  </mat-form-field>
 <br>
-  <button matFab extended  type="submit" >Add</button>
+ <mat-form-field>
+  <mat-label i18n>Category</mat-label>
+    <mat-select formControlName="category" >
+    @for (category of categoriesList; track category) {
+      <mat-option [value]="category.value">{{category.viewValue}}</mat-option>
+    }
+  </mat-select>
+ </mat-form-field>
+ <br>
+  <button matFab extended  type="submit" i18n="Button|form button@@ProductBtn">Add</button>
 </form>
+
+
+
 
 <hr />

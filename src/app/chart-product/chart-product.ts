@@ -23,7 +23,7 @@ export class ChartProduct {
 if (this.Charts != null) {
   for (let i = 0; i < this.Charts.length; i++) {
     this.labeldata.push(this.Charts[i].name);
-    this.productdata.push(this.Charts[i].quantity);
+    this.productdata.push(this.Charts[i].stock);
     this.pricedata.push(this.Charts[i].price);
 }
 this.createChart(this.labeldata, this.productdata, this.pricedata);
